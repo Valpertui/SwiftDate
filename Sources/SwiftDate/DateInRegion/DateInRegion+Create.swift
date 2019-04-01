@@ -38,7 +38,9 @@ public extension DateInRegion {
 	static func randomDate(withinDaysBeforeToday days: Int,
 								  region: Region = SwiftDate.defaultRegion) -> DateInRegion {
 		let today = DateInRegion(region: region)
-		let earliest = DateInRegion(today.date.addingTimeInterval(TimeInterval(-days * 24 * 60 * 60)), region: region)
+    let longExpression = -days * 24 * 60 * 60
+    let timeInterval = TimeInterval(longExpression)
+		let earliest = DateInRegion(today.date.addingTimeInterval(timeInterval), region: region)
 		return DateInRegion.randomDate(between: earliest, and: today)
 	}
 
