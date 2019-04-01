@@ -26,13 +26,13 @@ public class lang_es: RelativeFormatterLang {
 		return (value == 1 ? .one : .other)
 	}
 
-	public var flavours: [String: Any] {
+	public lazy var flavours: [String: Any] = {
 		return [
 			RelativeFormatter.Flavour.long.rawValue: _long,
 			RelativeFormatter.Flavour.narrow.rawValue: _narrow,
 			RelativeFormatter.Flavour.short.rawValue: _short
       ].compactMapValues { $0 }
-	}
+	}()
 
 	private var _short: [String: Any]? {
 		return jsonDictionary?["_short"]

@@ -24,7 +24,7 @@ public class lang_en: RelativeFormatterLang {
     return jsonDictionaryFromJsonFile(named: lang_en.filename) as? [String: [String: Any]]
   }()
 
-	public var flavours: [String: Any] {
+	public lazy var flavours: [String: Any] = {
 		return [
 			RelativeFormatter.Flavour.long.rawValue: _long,
 			RelativeFormatter.Flavour.longConvenient.rawValue: _longConvenient,
@@ -35,7 +35,7 @@ public class lang_en: RelativeFormatterLang {
 			RelativeFormatter.Flavour.short.rawValue: _short,
 			RelativeFormatter.Flavour.tiny.rawValue: _tiny
       ].compactMapValues { $0 }
-	}
+	}()
 
   private var _tiny: [String: Any]? {
     return jsonDictionary?["_tiny"]
