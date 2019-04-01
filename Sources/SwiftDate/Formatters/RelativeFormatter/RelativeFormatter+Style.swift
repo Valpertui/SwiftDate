@@ -22,6 +22,10 @@ public protocol RelativeFormatterLang {
 	/// Must be the languageIdentifier of the `Locale` instance.
 	static var identifier: String { get }
 
+  static var filename: String { get }
+
+  var jsonDictionary: [String: [String: Any]]? { get }
+
 	/// This is the rule to return singular or plural forms
 	/// based upon the CDLC specs. Must return the appropriate
 	/// value (other, few, none...)
